@@ -1,11 +1,10 @@
 ## Context
 
-Health Connect already receives activity, sleep, vital, and body-composition
-records from the phone, wearable, and scale ecosystems. Zepp also contains a
-valuable daily nutrition log, but its availability through Health Connect or a
-safe export path is unconfirmed. The unresolved problem is not basic capture;
-it is turning available data into dependable, current context for conversations
-in the ChatGPT Health project without routine intervention or silent gaps.
+Health Connect already receives activity, sleep, vital, body-composition, and
+Zepp nutrition records from the phone, wearable, and scale ecosystems. The
+unresolved problem is not basic capture; it is turning available data into
+dependable, current context for conversations in the ChatGPT Health project
+without routine intervention or silent gaps.
 
 Confirmed current state:
 
@@ -13,8 +12,10 @@ Confirmed current state:
 - Nothing X is intended to provide activity, sleep, and vital data, but not
   weight or body composition.
 - Zepp is intended to be the body-composition source.
-- Zepp is the candidate nutrition source, subject to an explicit exposure and
-  completeness test.
+- Zepp can read and write Health Connect Nutrition data, and Zepp-originated
+  entries expose meal classification, energy, and available macronutrients.
+- Nutrition field completeness, synchronization latency, and edit propagation
+  remain to be validated independently.
 - The ChatGPT Health project is the primary conversational consumption surface.
 - Exercise routes are unnecessary and excluded.
 - Google Chrome, Git, Homebrew, and OpenSpec are available on the Mac.
@@ -84,8 +85,8 @@ the context required for the conversation.
 
 The system has two independently selectable paths:
 
-1. The ingestion plane obtains and normalizes data from Health Connect and any
-   additional Zepp nutrition path.
+1. The ingestion plane obtains and normalizes Health Connect data, including
+   Zepp-originated nutrition records.
 2. The conversation plane makes a bounded, fresh view retrievable in ChatGPT
    Health.
 
@@ -163,9 +164,9 @@ reviews every accepted result.
   covered intervals, missing domains, and provenance to every retrieved view.
 - [A connected source appears live but refreshes only after a manual action] ->
   Test update behavior end to end before selecting it over live retrieval.
-- [Nutrition exists in Zepp but is not exposed to Health Connect] -> Treat
-  nutrition as a separate capability and validate its supported export path
-  before including it in the mandatory dataset.
+- [Zepp nutrition is present but only partially populated or delayed] -> Track
+  field coverage and synchronization state separately and never interpret an
+  absent nutrient as zero.
 - [A custom app adds permanent maintenance] -> Require the simpler-alternative
   gate and record why each cheaper option failed.
 - [Source names or package identifiers change] -> Discover origins on-device and
@@ -182,7 +183,7 @@ reviews every accepted result.
 ## Migration Plan
 
 1. Complete the outcome, conversation, and data-path validation artifacts.
-2. Validate Zepp nutrition availability and the simplest ChatGPT Health context
+2. Validate Zepp nutrition completeness and the simplest ChatGPT Health context
    path.
 3. Record whether existing sources and automation meet the requirements.
 4. If not, run the smallest AI Studio prototype with synthetic data.
@@ -198,8 +199,8 @@ reviews every accepted result.
   state, trends, correlations, weekly review, or preparation for a clinician?
 - What maximum data delay still counts as seamless: same day, next morning, or
   another window?
-- Does Zepp expose nutrition through Health Connect, an export, or another
-  supported interface with sufficient completeness?
+- Which Zepp nutrition fields and updates arrive through Health Connect with
+  sufficient completeness and freshness?
 - Can a connected ChatGPT project source meet the freshness contract, or is a
   read-only plugin required?
 - Should a missed day trigger a notification, appear only in a review, or both?

@@ -13,8 +13,8 @@
 - [ ] 2.3 Confirm that exercise-route permissions remain disabled and unnecessary for every retained indicator.
 - [x] 2.4 Confirm from official Android documentation that Health Connect supports nutrition records and aggregates.
 - [x] 2.5 Confirm from official Zepp documentation that Food Log exists while documenting that Health Connect output and supported export remain unconfirmed.
-- [ ] 2.6 Inspect Zepp's on-device Health Connect permissions and run one synthetic provenance test if nutrition write access exists.
-- [ ] 2.7 If the Health Connect test fails, inventory only supported Zepp account export or integration paths without exporting personal values.
+- [x] 2.6 Confirm on-device that Zepp can read and write Nutrition and that Zepp-originated entries expose energy and available macronutrients, without retaining personal values.
+- [x] 2.7 Defer a separate Zepp export path because the Health Connect interoperability gate passed.
 - [ ] 2.8 Define nutrition completeness and provenance independently from other Zepp data.
 
 ## 3. Validate conversational access

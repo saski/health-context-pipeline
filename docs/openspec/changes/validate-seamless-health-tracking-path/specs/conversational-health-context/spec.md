@@ -23,6 +23,12 @@ successful update, included domains, missing intervals, and unresolved gaps.
 The retrieved context SHALL retain provenance for activity, sleep, health
 indicators, body metrics, and nutrition independently.
 
+#### Scenario: Zepp nutrition is available
+- **GIVEN** Health Connect contains Nutrition entries with Zepp provenance
+- **WHEN** nutrition context is normalized
+- **THEN** available fields retain Zepp provenance and coverage
+- **AND** an absent nutrient field is represented as unavailable rather than zero
+
 #### Scenario: Zepp nutrition is unavailable
 - **GIVEN** Zepp provides body metrics but no validated nutrition integration
 - **WHEN** health context is retrieved

@@ -4,10 +4,12 @@ Date: 2026-08-17
 
 ## Scope
 
-This evidence pass used public product documentation and a read-only inspection
-of available ChatGPT account surfaces. It did not connect a health service,
-enable developer mode, install a plugin, upload a file, or inspect or record
-personal health values.
+The initial evidence pass used public product documentation and a read-only
+inspection of available ChatGPT account surfaces. A subsequent on-device check
+used user-provided Health Connect screenshots. Those screenshots contained
+personal nutrition values, but this repository intentionally retains only
+categorical interoperability evidence and no food names, dates, times, or
+measurements.
 
 ## Established
 
@@ -36,6 +38,19 @@ Sources:
 - https://us.amazfit.com/pages/food-log
 - https://us.amazfit.com/blogs/blog/how-to-use-the-amazfit-food-log
 
+### Zepp writes nutrition to Health Connect on the current device
+
+On-device Health Connect evidence confirms that:
+
+- Zepp is listed as able to read and write the Nutrition category.
+- Multiple Nutrition entries identify Zepp as their data origin.
+- The visible exported fields include meal classification, energy, protein,
+  total carbohydrate, and total fat when available for an entry.
+
+This satisfies the interoperability decision gate without creating or deleting
+a synthetic record. The screenshots and their personal values are not stored in
+the repository.
+
 ### This ChatGPT account can evaluate a private plugin path
 
 The account exposes the Plugins directory and a Developer mode control for
@@ -54,36 +69,32 @@ Sources:
 - https://chatgpt.com/plugins/plugin_connector_1p_e569f8b8dfd08191903c9bd2cd7da9ac
 - https://developers.openai.com/plugins/deploy/connect-chatgpt
 
-## Not established
+## Still not established
 
-- No reviewed official Zepp source states that Food Log writes
-  `NutritionRecord` data to Health Connect.
+- No reviewed official Zepp source documents the integration even though the
+  current on-device evidence proves that it is active.
 - No reviewed official Zepp source documents a supported Food Log export or
   public API.
-- Health Connect platform support does not prove that Zepp implements that
-  support.
+- The completeness of Zepp's Health Connect output across all Food Log fields,
+  entries, and days has not been measured.
+- Synchronization latency and the propagation of edits or deletions have not
+  been tested.
 - A private plugin has not been enabled, connected, or tested in the intended
   ChatGPT Health project.
 
+## Completed decision gate
+
+**Go through Health Connect:** Zepp has nutrition write access and
+Zepp-originated nutrition entries are present. Health Connect remains the
+preferred ingestion boundary for nutrition.
+
+No SDK, ADB, Android Studio, plugin installation, synthetic entry, or
+developer-mode change was needed for this gate.
+
 ## Smallest next test
 
-No SDK, ADB, Android Studio, plugin installation, or developer-mode change is
-needed.
-
-1. On the Android phone, open Health Connect and navigate to the Zepp app's
-   permissions or data-access view.
-2. Record only whether `Nutrition` is offered and whether Zepp can write it. Do
-   not capture or share measurement values.
-3. If nutrition write access exists, create one clearly synthetic Food Log
-   entry, allow Zepp to synchronize, and check whether Health Connect shows a
-   Zepp-originated nutrition entry. Delete the synthetic entry afterward if the
-   source applications support safe deletion.
-
-## Decision rule
-
-- **Go through Health Connect:** Zepp offers nutrition write access and the
-  synthetic entry appears in Health Connect with Zepp provenance.
-- **No-go through Health Connect:** nutrition write access is absent, or the
-  synthetic entry does not appear after an explicit Zepp synchronization. In
-  that case, investigate only supported Zepp account export before considering
-  another integration.
+Compare one recent day's Zepp Food Log and Health Connect views on-device using
+only field presence, entry count, timestamps, and synchronization delay. Do not
+copy the underlying nutrition values into development artifacts. The result
+will define which nutrition fields are mandatory, optional, or unavailable in
+the normalized record.
