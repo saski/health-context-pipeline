@@ -132,7 +132,9 @@ values, freshness, source coverage, and synchronization state. Vendor package
 names remain provenance, not domain categories. Phone attribution must be
 resolved dynamically rather than by hardcoding a historical package name.
 Nutrition availability and completeness are reported separately and are never
-inferred from the presence of other Zepp records.
+inferred from the presence of other Zepp records. Zepp nutrition items may
+share a timestamp, so nutrition deduplication must preserve item identity and
+must not treat equal origin and time as a duplicate key.
 
 ### Install the toolchain just in time
 

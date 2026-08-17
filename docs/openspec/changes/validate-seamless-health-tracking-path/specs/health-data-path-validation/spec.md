@@ -46,6 +46,17 @@ instant or interval, and normalized value.
 - **WHEN** the daily body summary is normalized
 - **THEN** one logical measurement is retained and the duplicate count is auditable
 
+### Requirement: Nutrition item identity
+The validation SHALL preserve distinct Zepp nutrition items that share a time
+or meal and SHALL deduplicate them only when stable record identity or all
+available semantic fields establish an exact duplicate.
+
+#### Scenario: Multiple food items share a timestamp
+- **GIVEN** Zepp-originated Nutrition records share the same interval but represent distinct food items
+- **WHEN** the daily nutrition summary is normalized
+- **THEN** every distinct item contributes its available nutrients to the summary
+- **AND** origin and timestamp alone do not cause an item to be discarded
+
 ### Requirement: Dynamic phone attribution
 The validation SHALL discover the current phone data origin at runtime when
 source-level attribution is required and SHALL NOT rely solely on the legacy

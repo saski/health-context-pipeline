@@ -44,6 +44,8 @@ On-device Health Connect evidence confirms that:
 
 - Zepp is listed as able to read and write the Nutrition category.
 - Multiple Nutrition entries identify Zepp as their data origin.
+- Distinct food-item entries can share the same timestamp and must not be
+  collapsed merely because their origin and time match.
 - The visible exported fields include meal classification, energy, protein,
   total carbohydrate, and total fat when available for an entry.
 
