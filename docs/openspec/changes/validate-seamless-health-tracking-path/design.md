@@ -90,12 +90,13 @@ The system has two independently selectable paths:
 2. The conversation plane makes a bounded, fresh view retrievable in ChatGPT
    Health.
 
-For the conversation plane, test a connected project source first because it
-has the lowest operational burden. Its refresh behavior and availability to
-the intended project conversations must be demonstrated rather than assumed.
-If it cannot meet the freshness contract, evaluate a read-only plugin backed by
-an MCP server that queries the normalized store at conversation time. Manual
-upload remains a recovery fallback, not a seamless steady state.
+The existing ChatGPT health project exposes a connected Google Drive folder,
+but ChatGPT reports it as `Not synced`. It remains suitable for stable documents
+and deliberately saved summaries but is rejected as the current-data path. The
+next conversational candidate is a read-only plugin backed by an MCP server
+that queries the normalized store at conversation time. It must first be tested
+with synthetic data. Manual upload remains a recovery fallback, not a seamless
+steady state.
 
 ### Preserve optional autonomous Android value
 
@@ -112,7 +113,8 @@ Candidate paths SHALL be evaluated in this order:
 
 1. Existing Health Connect and source-app capabilities.
 2. Existing trustworthy export or automation with no custom runtime.
-3. A connected ChatGPT Health project source with demonstrated freshness.
+3. A connected ChatGPT Health project source with demonstrated freshness
+   (rejected for live tracking because the current folder is `Not synced`).
 4. A read-only ChatGPT plugin backed by an MCP server, if live retrieval is
    required.
 5. A constrained AI Studio prototype using synthetic data.
@@ -203,8 +205,8 @@ reviews every accepted result.
   another window?
 - Which Zepp nutrition fields and updates arrive through Health Connect with
   sufficient completeness and freshness?
-- Can a connected ChatGPT project source meet the freshness contract, or is a
-  read-only plugin required?
+- Can a private read-only plugin meet the freshness contract without exposing
+  more data than each conversation requires?
 - Should a missed day trigger a notification, appear only in a review, or both?
 - How much raw detail is needed beyond the normalized daily summary?
 - Which observed device-native jobs, if any, justify autonomous Android

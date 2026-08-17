@@ -19,7 +19,7 @@
 
 ## 3. Validate conversational access
 
-- [ ] 3.1 Verify that connected sources are available in the ChatGPT Health project and test whether an updated synthetic record becomes available without routine manual refresh.
+- [x] 3.1 Verify the connected source state in the ChatGPT Health project and reject the existing Drive folder as a live feed because ChatGPT reports it as `Not synced`.
 - [x] 3.2 Verify that the account exposes developer mode and private plugin capability without enabling it or connecting health data.
 - [x] 3.3 Reject the current official OpenAI Health plugin as an Android Health Connect bridge because it declares Apple Health and medical-record support, not Health Connect support.
 - [ ] 3.4 Verify a private read-only plugin inside the intended Health project using synthetic data only if a connected source cannot meet the freshness requirement.
