@@ -1,14 +1,20 @@
 ## Why
 
-The desired outcome is dependable health tracking that requires no daily
-maintenance and never hides missing, duplicated, or incorrectly attributed
-data. Starting by "building an app" would prematurely commit to the most
-expensive solution before proving that existing Android and cloud capabilities
-cannot satisfy the outcome more simply.
+The desired outcome is dependable health tracking that gives conversations in
+the ChatGPT Health project current, traceable context about activity, sleep,
+health indicators, body metrics, and—when accessible—nutrition. It must require
+no daily maintenance and never hide missing, duplicated, stale, or incorrectly
+attributed data. Starting by "building an app" would prematurely commit to the
+most expensive solution before proving that existing Android, ChatGPT, and
+cloud capabilities cannot satisfy the outcome more simply.
 
 ## What Changes
 
 - Define measurable seamlessness, trust, privacy, and recoverability outcomes.
+- Define ChatGPT Health conversations as the primary consumption surface and
+  the freshness contract for context supplied to them.
+- Separate device ingestion and normalization from conversational access so
+  either side can evolve without making the Android app the product boundary.
 - Inventory the existing data path and candidate implementation paths.
 - Establish a decision gate that prefers configuration or existing automation
   over custom code when it meets the same outcome.
@@ -27,6 +33,8 @@ cannot satisfy the outcome more simply.
   visibility, privacy boundary, and criteria for choosing the simplest path.
 - `health-data-path-validation`: Defines how candidate data paths and source
   policies are validated before implementation expands.
+- `conversational-health-context`: Defines how ChatGPT Health retrieves current
+  normalized context with freshness, coverage, and provenance disclosures.
 
 ### Modified Capabilities
 
@@ -35,13 +43,18 @@ None.
 ## Impact
 
 This change creates decision and validation artifacts only. It may later lead
-to an Android project using Kotlin, Jetpack Compose, Health Connect, and a
-physical Android device, but it does not yet add runtime code, request device
-permissions, install SDKs, transmit health data, or create cloud resources.
+to a connected ChatGPT source, a read-only plugin backed by an MCP server, or an
+Android project using Kotlin, Jetpack Compose, Health Connect, and a physical
+Android device. It does not yet add runtime code, request device permissions,
+install SDKs, transmit health data, or create cloud resources.
 
 ## Non-goals
 
 - Building an Android app as an end in itself.
+- Treating the ChatGPT Health project as the canonical archive of raw health
+  records.
+- Committing to speculative Android features before a device-native job is
+  observed and validated.
 - Choosing Google Sheets before validating the required analysis and retention
   workflow.
 - Reading or storing exercise routes.

@@ -43,7 +43,8 @@ outcome, privacy, trust, and recovery requirements.
 #### Scenario: Existing capability satisfies the outcome
 - **GIVEN** an existing configuration or automation meets every mandatory requirement
 - **WHEN** candidate paths are compared
-- **THEN** the project stops before building a custom Android runtime
+- **THEN** the project stops before building a custom Android runtime for that outcome
+- **AND** independently validated device-native jobs remain eligible for separate evaluation
 
 ### Requirement: Reviewable feedback loop
 The tracking state SHALL support a defined recurring review question or decision
