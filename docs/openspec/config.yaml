@@ -1,0 +1,29 @@
+schema: spec-driven
+
+context: |
+  Product goal: make personal health tracking seamless, trustworthy, and
+  reviewable. A custom Android app is only one candidate implementation and
+  must not become the goal.
+  Initial ecosystem: Android Health Connect, data produced by wearable and
+  scale companion apps, and a future durable analysis destination.
+  Privacy boundary: use synthetic data outside the user's device; do not read,
+  store, or transmit exercise routes; request the minimum permissions needed.
+  Engineering baseline: Kotlin, Jetpack Compose, behavior-level tests, a
+  physical Android device for Health Connect validation, and no production
+  backend unless a later decision proves it necessary.
+  Decision principle: prefer the least-maintained solution that achieves
+  zero-touch steady-state tracking with visible recovery from failures.
+
+rules:
+  proposal:
+    - State the user outcome before naming an implementation.
+    - Include explicit non-goals and a simpler-alternative gate.
+  design:
+    - Separate confirmed facts, assumptions, and decisions still to validate.
+    - Treat privacy, source attribution, and failure visibility as architecture.
+  specs:
+    - Use SHALL requirements and GIVEN WHEN THEN scenarios.
+    - Make seamlessness and trustworthiness observable.
+  tasks:
+    - Keep tasks independently verifiable and no longer than one focused session.
+    - Do not install tools before the task that needs them.
