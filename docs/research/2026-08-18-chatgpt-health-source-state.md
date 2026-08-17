@@ -27,5 +27,9 @@ upload or refresh.
 - Evaluate a private read-only plugin backed by an MCP server using synthetic
   data before exposing or transmitting any real health data.
 
-Enabling ChatGPT developer mode or adding a private connection remains a
-separate user-approved action because it changes account security posture.
+ChatGPT developer mode was enabled on 2026-08-18 after explicit user approval.
+The enabled state was verified. No plugin or private connection was installed,
+and no health data was transmitted or connected.
+
+Adding the private read-only connection remains a separate action. Its first
+validation must use synthetic data only.
