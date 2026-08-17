@@ -11,15 +11,20 @@
 - [ ] 2.1 Record the actual Health Connect package origins for wearable, phone, and scale data without recording personal measurements.
 - [ ] 2.2 Verify one or two recent days for completeness, duplicates, source conflicts, and delayed synchronization using the Health Connect interface.
 - [ ] 2.3 Confirm that exercise-route permissions remain disabled and unnecessary for every retained indicator.
-- [ ] 2.4 Verify whether Zepp exposes nutrition records through Health Connect and, if not, inventory supported export or integration paths without exporting personal values.
-- [ ] 2.5 Define nutrition completeness and provenance independently from other Zepp data.
+- [x] 2.4 Confirm from official Android documentation that Health Connect supports nutrition records and aggregates.
+- [x] 2.5 Confirm from official Zepp documentation that Food Log exists while documenting that Health Connect output and supported export remain unconfirmed.
+- [ ] 2.6 Inspect Zepp's on-device Health Connect permissions and run one synthetic provenance test if nutrition write access exists.
+- [ ] 2.7 If the Health Connect test fails, inventory only supported Zepp account export or integration paths without exporting personal values.
+- [ ] 2.8 Define nutrition completeness and provenance independently from other Zepp data.
 
 ## 3. Validate conversational access
 
 - [ ] 3.1 Verify that connected sources are available in the ChatGPT Health project and test whether an updated synthetic record becomes available without routine manual refresh.
-- [ ] 3.2 Verify whether developer mode and private plugin connections are available for the account and intended project workflow without connecting real health data.
-- [ ] 3.3 Compare a connected project source, a read-only MCP-backed plugin, and manual upload for freshness, privacy, recovery, and maintenance.
-- [ ] 3.4 Define the minimum context query or artifact returned to a conversation, including time window, freshness, provenance, coverage, and gaps.
+- [x] 3.2 Verify that the account exposes developer mode and private plugin capability without enabling it or connecting health data.
+- [x] 3.3 Reject the current official OpenAI Health plugin as an Android Health Connect bridge because it declares Apple Health and medical-record support, not Health Connect support.
+- [ ] 3.4 Verify a private read-only plugin inside the intended Health project using synthetic data only if a connected source cannot meet the freshness requirement.
+- [ ] 3.5 Compare a connected project source, a read-only MCP-backed plugin, and manual upload for freshness, privacy, recovery, and maintenance.
+- [ ] 3.6 Define the minimum context query or artifact returned to a conversation, including time window, freshness, provenance, coverage, and gaps.
 
 ## 4. Compare end-to-end candidate paths
 
