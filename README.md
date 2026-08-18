@@ -30,10 +30,10 @@ smoke test. It does not export or retain real data. Automated Health Connect
 ingestion and real-data export have not been implemented; the current Drive
 file remains a synthetic freshness probe, not a health summary.
 
-The exported prototype source lives in
-[`android/health-availability`](android/health-availability). It is retained
-for review and future maintenance, but AI Studio remains its current build and
-install surface.
+The Android app is maintained separately in
+[`saski/health-availability-android`](https://github.com/saski/health-availability-android),
+which is directly synchronized by AI Studio. This repository retains the
+cross-platform tracking outcome, validation evidence, and conversational path.
 
 For the everyday workflow, current limitations, and how to read a daily
 summary, see the Spanish [user guide](docs/guia-de-uso.md). The next

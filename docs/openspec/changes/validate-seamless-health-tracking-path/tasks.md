@@ -44,7 +44,7 @@
 - [x] 5.1 Create a synthetic daily-record fixture covering healthy, mixed-source, duplicate, stale, missing, and nutrition-unavailable states.
 - [x] 5.2 Derive an AI Studio prompt for the accepted foreground availability-check prototype without personal measurements or external export.
 - [x] 5.3 Run the browser build and physical-device WebUSB smoke test before installing the local Android toolchain. The prototype read current Health Connect records on-device and represented absent domains as partial without additional permission requests.
-  - [x] Retain the exported AI Studio source under `android/health-availability` after removing unused Gemini, Firebase, secrets, and backup configuration.
+  - [x] Move Android source-of-truth to `saski/health-availability-android`, synchronized directly by AI Studio; retain only the cross-platform evidence and decisions here.
 
 ## 6. Gate local development
 

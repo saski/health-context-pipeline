@@ -139,9 +139,10 @@ Candidate paths SHALL be evaluated in this order:
 For the primary conversational outcome, the process stops at the first path
 that meets the outcome and privacy requirements. A separately validated
 device-native job may still justify an Android feature without reopening the
-conversation-path decision. AI Studio is a one-way prototype source; if code
-becomes durable, one audited ZIP is imported into this repository and
-subsequent development occurs here.
+conversation-path decision. AI Studio synchronizes the durable Android source
+directly to `saski/health-availability-android`, which is the Android source of
+truth. This repository retains the cross-platform decisions and validation
+evidence, with no copied Android source tree or ZIP handoff.
 
 ### Separate normalized outcomes from vendor records
 
