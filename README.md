@@ -30,10 +30,18 @@ smoke test. It does not export or retain real data. Automated Health Connect
 ingestion and real-data export have not been implemented; the current Drive
 file remains a synthetic freshness probe, not a health summary.
 
-The Android app is maintained separately in
-[`saski/health-context-android`](https://github.com/saski/health-context-android),
-which is directly synchronized by AI Studio. This repository retains the
-cross-platform tracking outcome, validation evidence, and conversational path.
+## Repository map
+
+This repository, **Health Context Pipeline**, owns the cross-platform tracking
+outcome, validation evidence, daily-context contract, and conversational path.
+The Android companion, [**Health Context Android**](https://github.com/saski/health-context-android),
+owns the on-device Health Connect availability reader and is synchronized
+directly by AI Studio. Neither repository is a copy of the other.
+
+Android reports daily availability locally; the pipeline defines how an
+explicitly enabled, privacy-bounded summary could later become usable in
+ChatGPT Health. The current Android app does not upload, export, or retain real
+health data.
 
 For the everyday workflow, current limitations, and how to read a daily
 summary, see the Spanish [user guide](docs/guia-de-uso.md). The next
