@@ -42,11 +42,12 @@ None.
 
 ## Impact
 
-This change creates decision and validation artifacts only. It may later lead
-to a connected ChatGPT source, a read-only plugin backed by an MCP server, or an
-Android project using Kotlin, Jetpack Compose, Health Connect, and a physical
-Android device. It does not yet add runtime code, request device permissions,
-install SDKs, transmit health data, or create cloud resources.
+This change includes a local-only renderer for a synthetic daily Markdown
+artifact. It may later lead to a connected ChatGPT source, a read-only plugin
+backed by an MCP server, or an Android project using Kotlin, Jetpack Compose,
+Health Connect, and a physical Android device. It does not request device
+permissions, install SDKs, transmit health data, access Drive, or create cloud
+resources.
 
 ## Non-goals
 

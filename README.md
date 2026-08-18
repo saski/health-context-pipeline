@@ -21,5 +21,21 @@ credentials, API keys, or device exports belong in this repository.
 
 ## Current status
 
-The repository is in the discovery and specification phase. No Android app or
-data export has been implemented.
+The repository is validating the daily Drive-based conversation path. It has a
+local renderer for synthetic daily context and a connected Drive folder whose
+new synthetic file was successfully read from the ChatGPT Health project.
+
+A browser-built Android prototype has passed a physical-device foreground-read
+smoke test. It does not export or retain real data. Automated Health Connect
+ingestion and real-data export have not been implemented; the current Drive
+file remains a synthetic freshness probe, not a health summary.
+
+The exported prototype source lives in
+[`android/health-availability`](android/health-availability). It is retained
+for review and future maintenance, but AI Studio remains its current build and
+install surface.
+
+For the everyday workflow, current limitations, and how to read a daily
+summary, see the Spanish [user guide](docs/guia-de-uso.md). The next
+browser-only Android validation is documented as a ready-to-paste
+[AI Studio prototype prompt](docs/ai-studio-health-connect-prototype-prompt.md).

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": true,
+  "generatedAt": "2099-04-08T06:00:00Z",
+  "coveredThrough": "2099-04-07T22:00:00Z",
+  "window": {
+    "from": "2099-04-07",
+    "to": "2099-04-07"
+  },
+  "domains": {
+    "sleep": {
+      "provenance": [
+        { "source": "synthetic_wearable", "recordType": "sleep_session" }
+      ],
+      "freshness": {
+        "status": "current",
+        "collectedThrough": "2099-04-07T06:00:00Z",
+        "generatedAt": "2099-04-08T06:00:00Z"
+      },
+      "coverage": { "from": "2099-04-07", "to": "2099-04-07", "status": "complete" },
+      "gaps": [],
+      "observations": [
+        {
+          "id": "sample-sleep-001",
+          "occurredAt": "2099-04-07T06:00:00Z",
+          "metrics": {
+            "durationMinutes": { "availability": "observed", "value": 451, "unit": "min" }
+          }
+        }
+      ]
+    },
+    "nutrition": {
+      "provenance": [
+        { "source": "synthetic_zepp", "recordType": "nutrition" }
+      ],
+      "freshness": {
+        "status": "current",
+        "collectedThrough": "2099-04-07T22:00:00Z",
+        "generatedAt": "2099-04-08T06:00:00Z"
+      },
+      "coverage": { "from": "2099-04-07", "to": "2099-04-07", "status": "partial" },
+      "gaps": ["Carbohydrate observation unavailable for sample-nutrition-002."],
+      "observations": [
+        {
+          "id": "sample-nutrition-001",
+          "occurredAt": "2099-04-07T12:30:00Z",
+          "metrics": {
+            "energyKilocalories": { "availability": "observed", "value": 420, "unit": "kcal" }
+          }
+        },
+        {
+          "id": "sample-nutrition-002",
+          "occurredAt": "2099-04-07T12:30:00Z",
+          "metrics": {
+            "carbohydrateGrams": { "availability": "unavailable" }
+          }
+        }
+      ]
+    },
+    "body": {
+      "provenance": [
+        { "source": "synthetic_zepp", "recordType": "body_measurement" }
+      ],
+      "freshness": {
+        "status": "stale",
+        "collectedThrough": "2099-03-28T07:00:00Z",
+        "generatedAt": "2099-04-08T06:00:00Z"
+      },
+      "coverage": { "from": "2099-04-07", "to": "2099-04-07", "status": "unavailable" },
+      "gaps": ["No body observation is available in the requested window."],
+      "observations": []
+    }
+  }
+}

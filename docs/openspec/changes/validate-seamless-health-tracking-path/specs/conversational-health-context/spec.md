@@ -19,6 +19,14 @@ successful update, included domains, missing intervals, and unresolved gaps.
 - **THEN** activity and sleep coverage are disclosed separately
 - **AND** the missing sleep interval is not interpreted as a zero value
 
+#### Scenario: Wearable or manual nutrition is absent
+- **GIVEN** the wearable is not worn or no nutrition entry was manually logged
+- **WHEN** the daily context is generated or viewed
+- **THEN** the affected domain is marked unavailable or partial with its
+  applicable source expectation
+- **AND** the overall report may remain partial without being represented as a
+  reader failure
+
 ### Requirement: Domain-specific provenance
 The retrieved context SHALL retain provenance for activity, sleep, health
 indicators, body metrics, and nutrition independently.
@@ -45,6 +53,29 @@ time window needed for the user's question.
 - **THEN** the response path returns the sleep window and its required provenance
 - **AND** unrelated health domains are not included by default
 
+### Requirement: Safe synthetic connector probe
+The first private MCP validation SHALL expose one stateless read-only tool and
+SHALL return deterministic synthetic data only.
+
+#### Scenario: ChatGPT requests a bounded synthetic context
+- **GIVEN** the private connector is running in validation mode
+- **WHEN** `get_health_context` is called with a date window and selected domains
+- **THEN** the result is explicitly marked as synthetic
+- **AND** only the requested domains are returned
+- **AND** every returned domain reports provenance, freshness, coverage, and gaps
+- **AND** the tool cannot write state or access Health Connect
+
+#### Scenario: Multiple nutrition items share a timestamp
+- **GIVEN** the synthetic fixture contains distinct nutrition items with the same timestamp
+- **WHEN** nutrition context is retrieved
+- **THEN** both items are retained with distinct stable identifiers
+
+#### Scenario: A nutrient is missing
+- **GIVEN** a synthetic nutrition item has no carbohydrate observation
+- **WHEN** nutrition context is retrieved
+- **THEN** carbohydrate availability is reported as unavailable
+- **AND** the missing observation is not represented as zero
+
 ### Requirement: Conversation evidence contract
 Health context SHALL distinguish observed values and trends from interpretation
 and SHALL make the supporting window, freshness, provenance, and gaps available
@@ -56,15 +87,18 @@ to the conversation.
 - **THEN** the trend is tied to the covered interval and source context
 - **AND** known gaps or conflicts are disclosed
 
-### Requirement: Least-maintained access path
+### Requirement: Daily context artifact
 The project SHALL select the least-maintained conversational access path that
-meets freshness, privacy, provenance, and recovery requirements.
+meets the agreed daily freshness, privacy, provenance, and recovery
+requirements. The daily artifact SHALL state its generation time,
+data-covered-through time, and overall completion state.
 
-#### Scenario: Connected project source does not refresh reliably
-- **GIVEN** a connected source requires recurring manual refresh or returns stale context
-- **WHEN** it is evaluated against the freshness contract
-- **THEN** it is rejected as the seamless steady-state path
-- **AND** a read-only live retrieval path is evaluated before custom UI work
+#### Scenario: Connected project source is not immediately current
+- **GIVEN** an immediate post-update probe returns a prior source revision
+- **WHEN** the project evaluates the connected source against a daily contract
+- **THEN** the source remains eligible until its propagation is measured against
+  the agreed daily deadline
+- **AND** the artifact does not represent itself as live or intraday context
 
 ### Requirement: Evidence-gated autonomous Android features
 An Android feature that operates without ChatGPT SHALL enter implementation

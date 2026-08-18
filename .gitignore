@@ -10,6 +10,10 @@ captures/
 .idea/
 *.iml
 
+# Node.js MCP probe
+node_modules/
+coverage/
+
 # Signing and secrets
 *.jks
 *.keystore

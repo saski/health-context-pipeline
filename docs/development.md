@@ -11,6 +11,42 @@ Required now: no additional installation.
 Use the existing Git and OpenSpec installations to complete the outcome and
 candidate-path decision. Real measurements remain on the phone.
 
+## Synthetic MCP probe
+
+The repository contains a local-only, read-only MCP probe for validating the
+conversation boundary. It contains deterministic synthetic records only and
+does not access Health Connect, Drive, or personal data.
+
+Run its checks with:
+
+```bash
+npm test
+```
+
+Run the stdio server for a local MCP client with:
+
+```bash
+npm run start:mcp
+```
+
+Do not connect it to ChatGPT or a tunnel with real health data until the
+synthetic-data evaluation and explicit privacy review are complete.
+
+## Daily context artifact
+
+The current leading conversational path is a daily Markdown artifact placed in
+the dedicated connected Drive folder. The generator is local-only: it does not
+read Health Connect, access Drive, or upload any data.
+
+```bash
+npm run build:daily-context -- --input path/to/normalized-day.json --output path/to/health-context.md
+```
+
+The input must already be normalized and must include the reporting window and
+per-domain freshness, provenance, coverage, and gaps. The output makes those
+limits visible to a ChatGPT Health conversation. Do not put real records in
+repository fixtures or source control.
+
 ## Phase 1: AI Studio prototype and WebUSB smoke test
 
 Already available:
@@ -28,6 +64,12 @@ Human setup on the Android phone:
 Local Android Studio, a JDK, the Android SDK, and local ADB are not required for
 AI Studio's **Install on Device** flow. This phase proves only build, install,
 launch, UI states, and the narrow physical-device smoke path.
+
+The exported source is stored under `android/health-availability`. It has been
+cleaned of unused AI Studio Gemini, Firebase, and secrets configuration. It is
+an auditable source snapshot, not evidence that a local Android build is ready:
+the export has no Gradle wrapper and the host toolchain remains intentionally
+uninstalled.
 
 ## Phase 2: Durable local Android development
 

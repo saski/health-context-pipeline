@@ -1,0 +1,18 @@
+{
+  "name": "health-connect-exporter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build:daily-context": "node src/build-daily-context.js",
+    "start:mcp": "node src/mcp-server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3"
+  }
+}

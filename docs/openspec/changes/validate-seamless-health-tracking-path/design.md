@@ -90,13 +90,30 @@ The system has two independently selectable paths:
 2. The conversation plane makes a bounded, fresh view retrievable in ChatGPT
    Health.
 
-The existing ChatGPT health project exposes a connected Google Drive folder,
-but ChatGPT reports it as `Not synced`. It remains suitable for stable documents
-and deliberately saved summaries but is rejected as the current-data path. The
-next conversational candidate is a read-only plugin backed by an MCP server
-that queries the normalized store at conversation time. It must first be tested
-with synthetic data. Manual upload remains a recovery fallback, not a seamless
-steady state.
+The ChatGPT Health project has a dedicated connected Drive folder that is
+reported as `Synced`. A conversation successfully retrieved its initial
+synthetic probe. An immediate update from revision A to revision B was still
+served as revision A, so `Synced` establishes ingestion rather than live reads.
+
+The selected working hypothesis is therefore a daily artifact: a local process
+creates one bounded Markdown context per local day and the connected folder
+makes it available for the next day's conversations. Each artifact states its
+generation time, data-covered-through time, overall completion state,
+provenance, and gaps. It makes no intraday freshness claim. The acceptable
+daily deadline remains to be agreed and measured.
+
+The local MCP probe remains a synthetic experiment. It becomes relevant only
+if the Drive path cannot meet the daily freshness contract or if an intraday
+conversation becomes a validated need.
+
+The first MCP probe uses one stdio tool, `get_health_context`, reached from
+ChatGPT through OpenAI Secure MCP Tunnel. The tool is stateless, advertises
+read-only and closed-world annotations, and returns only deterministic
+synthetic records. Its request bounds disclosure by date window and selected
+domains. Its response explicitly marks the fixture as synthetic and reports
+freshness, provenance, coverage, and gaps per domain. HTTP hosting,
+authentication, persistence, and real Health Connect access remain outside the
+probe.
 
 ### Preserve optional autonomous Android value
 
@@ -113,10 +130,9 @@ Candidate paths SHALL be evaluated in this order:
 
 1. Existing Health Connect and source-app capabilities.
 2. Existing trustworthy export or automation with no custom runtime.
-3. A connected ChatGPT Health project source with demonstrated freshness
-   (rejected for live tracking because the current folder is `Not synced`).
-4. A read-only ChatGPT plugin backed by an MCP server, if live retrieval is
-   required.
+3. A connected ChatGPT Health project source with demonstrated daily freshness.
+4. A read-only ChatGPT plugin backed by an MCP server only if live retrieval is
+   required or the daily source fails its agreed freshness contract.
 5. A constrained AI Studio prototype using synthetic data.
 6. A locally maintained Android application.
 
@@ -137,6 +153,61 @@ Nutrition availability and completeness are reported separately and are never
 inferred from the presence of other Zepp records. Zepp nutrition items may
 share a timestamp, so nutrition deduplication must preserve item identity and
 must not treat equal origin and time as a duplicate key.
+
+The current phone inventory confirms four visible activity sources (Fit,
+Nothing X, Nothing Phone 3a Pro, and Zepp). Version 1 therefore uses Health
+Connect daily aggregates for activity rather than choosing a single source.
+Sleep and indicators have visible Nothing X provenance; body and nutrition have
+visible Zepp provenance. These are user-visible application labels, not a
+substitute for runtime package-origin discovery.
+
+Recent coverage confirms that only phone steps are currently available on both
+checked days. Sleep and resting heart rate are unavailable on days when Nothing
+X is not worn or does not contribute; weight is event-based; and nutrition has
+no recent manually logged entries despite validated Zepp interoperability. The
+user explicitly accepts partial reports under these conditions. The daily
+artifact SHALL represent these states explicitly. It SHALL not treat a missing
+weigh-in as a failed day, nor missing sleep, pulse, or nutrition as zero.
+
+### Define the first device-native job
+
+The first Android job is a foreground, on-device **daily availability check**:
+after a manual refresh, show whether selected Health Connect domains are
+available, partial, or unavailable; identify the visible source where available;
+and make the covered-through time explicit. It does not diagnose health,
+interpret missing data, upload to Drive, connect to ChatGPT, run in the
+background, or request exercise-route access. This is useful even when the
+daily conversational artifact is partial because it distinguishes a conscious
+wearing/logging choice from a broken sync.
+
+### Define the first daily-record contract
+
+Version 1 supports two conversation families: a daily current-state review and
+a seven-day review of trends. Correlations and clinician preparation stay out
+of scope until their required data and wording are explicitly defined.
+
+| Domain | Daily question | Seven-day question |
+| --- | --- | --- |
+| Sleep | What sleep context is available for the last completed day, and is it current? | Which observed sleep changes are supported by complete days? |
+| Activity | What activity context is available for the last completed day, and did sources overlap? | Which observed activity changes are supported by complete days? |
+| Indicators | Which selected indicators are current or stale? | Which indicator trends are supported by the covered interval? |
+| Body | Is a current body observation available from its selected source? | What body trend is supported by available observations? |
+| Nutrition | Is nutrition present and which nutrient fields are unavailable? | What nutrition pattern is supported without inferring absent fields? |
+
+Each daily record SHALL contain the local reporting date, `generatedAt`,
+`coveredThrough`, an overall status, and a domain block for every selected
+domain. Each domain block SHALL contain coverage, freshness, provenance,
+observations, and known gaps. A missing domain or metric is represented as
+`unavailable`; it is never represented as zero. Exercise routes, raw vendor
+exports, and free-text medical interpretation are excluded from version 1.
+
+The current Markdown-view hypothesis uses `health-context-YYYY-MM-DD.md`. It
+is not the canonical-store decision: Google Sheets remains a candidate for
+structured multi-day analysis. The project SHALL compare a synthetic connected
+Sheet and Markdown artifact for conversational retrievability, daily freshness,
+and clarity before selecting either. The current renderer accepts its output
+path explicitly; automatic naming and Drive upload remain deferred with
+real-data ingestion.
 
 ### Install the toolchain just in time
 
