@@ -31,7 +31,7 @@ ingestion and real-data export have not been implemented; the current Drive
 file remains a synthetic freshness probe, not a health summary.
 
 The Android app is maintained separately in
-[`saski/health-availability-android`](https://github.com/saski/health-availability-android),
+[`saski/health-context-android`](https://github.com/saski/health-context-android),
 which is directly synchronized by AI Studio. This repository retains the
 cross-platform tracking outcome, validation evidence, and conversational path.
 

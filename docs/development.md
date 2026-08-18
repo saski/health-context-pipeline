@@ -66,7 +66,7 @@ AI Studio's **Install on Device** flow. This phase proves only build, install,
 launch, UI states, and the narrow physical-device smoke path.
 
 The Android source is maintained in the separate
-[`health-availability-android`](https://github.com/saski/health-availability-android)
+[`health-context-android`](https://github.com/saski/health-context-android)
 repository, synchronized directly by AI Studio. That removes ZIP handoffs while
 preserving this repository as the decision and validation record. The app's
 browser build remains distinct from a locally maintained Android build: the
