@@ -22,6 +22,11 @@ ran a manual refresh.
   overall report was partial.
 - The app did not request an additional permission during the observed flow.
 
+After the initial smoke test, a separate manual Zepp nutrition entry was
+successfully detected by a later manual refresh. The record-level presence is
+documented separately in `2026-08-18-nutrition-positive-read.md` without
+retaining its contents.
+
 ## Decision
 
 The first device-native job is validated: a manual, local daily availability

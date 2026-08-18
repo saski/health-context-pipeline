@@ -15,7 +15,7 @@
 - [x] 2.5 Confirm from official Zepp documentation that Food Log exists while documenting that Health Connect output and supported export remain unconfirmed.
 - [x] 2.6 Confirm on-device that Zepp can read and write Nutrition and that Zepp-originated entries expose energy and available macronutrients, without retaining personal values.
 - [x] 2.7 Defer a separate Zepp export path because the Health Connect interoperability gate passed.
-- [ ] 2.8 Define nutrition completeness and provenance independently from other Zepp data.
+- [x] 2.8 Define nutrition completeness and provenance independently from other Zepp data. A positive Zepp-originated NutritionRecord was read on-device after manual refresh; record presence does not establish daily aggregate or macronutrient completeness.
 
 ## 3. Validate conversational access
 
