@@ -25,9 +25,12 @@ The repository is validating the daily Drive-based conversation path. It has a
 local renderer for synthetic daily context and a connected Drive folder whose
 new synthetic file was successfully read from the ChatGPT Health project.
 
-A browser-built Android prototype has passed a physical-device foreground-read
-smoke test. It does not export or retain real data. Automated Health Connect
-ingestion and real-data export have not been implemented; the current Drive
+A browser-built Android companion has passed a physical-device foreground-read
+smoke test. It now implements a manual foreground export: after the user
+selects the `Health context` Drive folder with Android's system picker, it can
+write or replace that date's Markdown summary in that folder. It has no
+Internet permission, OAuth credentials, broad Drive access, or background
+export. This new path awaits physical-device validation; the current Drive
 file remains a synthetic freshness probe, not a health summary.
 
 ## Repository map
@@ -38,10 +41,10 @@ The Android companion, [**Health Context Android**](https://github.com/saski/hea
 owns the on-device Health Connect availability reader and is synchronized
 directly by AI Studio. Neither repository is a copy of the other.
 
-Android reports daily availability locally; the pipeline defines how an
-explicitly enabled, privacy-bounded summary could later become usable in
-ChatGPT Health. The current Android app does not upload, export, or retain real
-health data.
+Android reports daily availability locally and can export a selected day's
+summary only after an explicit folder choice. The pipeline defines how that
+privacy-bounded artifact becomes usable in ChatGPT Health. The app does not
+upload data, retain raw health records, or automate the export.
 
 For the everyday workflow, current limitations, and how to read a daily
 summary, see the Spanish [user guide](docs/guia-de-uso.md). The next

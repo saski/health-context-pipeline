@@ -2,14 +2,14 @@
 
 - [x] 1.1 Select Storage Access Framework folder access over OAuth/Internet for the first export.
 - [x] 1.2 Define the date-named Markdown contract and explicit missing-data semantics.
-- [ ] 1.3 Add the revised foreground export boundary to both user-facing READMEs.
+- [x] 1.3 Add the revised foreground export boundary to both user-facing READMEs.
 
 ## 2. Android implementation
 
-- [ ] 2.1 Add a pure Markdown renderer with behavior tests for available and unavailable domains.
-- [ ] 2.2 Add a narrow persisted document-tree repository that creates or replaces only the date-named Markdown file.
-- [ ] 2.3 Add folder-selection and explicit export controls; require a refreshed report before export.
-- [ ] 2.4 Make provider failures and revoked folder access visible without claiming Drive or ChatGPT freshness.
+- [x] 2.1 Add a pure Markdown renderer with behavior tests for available and unavailable domains.
+- [x] 2.2 Add a narrow persisted document-tree repository that creates or replaces only the date-named Markdown file.
+- [x] 2.3 Add folder-selection and explicit export controls; require a refreshed report before export.
+- [x] 2.4 Make provider failures and revoked folder access visible without claiming Drive or ChatGPT freshness.
 
 ## 3. End-to-end validation
 
