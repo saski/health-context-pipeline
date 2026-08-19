@@ -15,7 +15,7 @@
 
 ## 3. Verification
 
-- [ ] 3.1 Validate OpenSpec and run unit tests/build in AI Studio.
+- [x] 3.1 Validate OpenSpec and run unit tests/build in GitHub CI after AI Studio synced the source.
 - [ ] 3.2 Install the update and grant the expanded read permissions once.
 - [ ] 3.3 Confirm the existing Fit elliptical session appears with Fit provenance.
 - [ ] 3.4 Confirm the next automatic Markdown export includes workouts and metric details.

@@ -27,7 +27,9 @@ the `Health context` Drive folder with Android's system picker, the app can
 write or replace that date's Markdown summary; ChatGPT Health can then read
 the file and retain provenance and gaps. Opt-in previous-day background export
 is now implemented and awaits physical-device validation. The app still has no
-Internet permission, OAuth credentials, or broad Drive access.
+Internet permission, OAuth credentials, or broad Drive access. Comprehensive
+Health Connect coverage now compiles and passes its unit tests in GitHub CI;
+the expanded permissions and real Fit workout remain to be checked on-device.
 
 ## Repository map
 
