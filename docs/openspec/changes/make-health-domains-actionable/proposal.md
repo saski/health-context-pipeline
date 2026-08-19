@@ -10,7 +10,11 @@ status controls. Available domain cards are the natural entry point.
 - Open the exact source category when a verified source-app deep link exists.
 - Fall back to the source app's main screen when no stable category link exists.
 - Present a source choice for aggregated domains with multiple origins.
-- Simplify the screen around automation status, health domains, and recovery.
+- Run a critical UI inventory after the comprehensive export path is validated.
+- Simplify the screen around automation status and the six health domains;
+  remove redundant development copy and progressively disclose setup,
+  diagnostics, and manual recovery controls.
+- Improve hierarchy, density, contrast, and scanability for everyday use.
 
 ## Non-goals
 
@@ -20,5 +24,5 @@ status controls. Available domain cards are the natural entry point.
 
 ## Dependency
 
-This is a follow-up iteration after automatic daily export is validated on the
-physical device.
+This is a follow-up iteration after the expanded automatic export is validated
+on the physical device and ChatGPT Health reads the comprehensive artifact.
