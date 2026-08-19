@@ -13,8 +13,8 @@
 
 ## 3. End-to-end validation
 
-- [ ] 3.1 Build and install the Android change through AI Studio.
-- [ ] 3.2 Select the existing `Health context` Drive folder and export one real, partial or complete daily report.
-- [ ] 3.3 Verify the exact file in Drive and that it contains no synthetic marker.
-- [ ] 3.4 Verify a subsequent ChatGPT Health conversation can identify it, its coverage, and its gaps without inventing absent data.
+- [x] 3.1 Build and install the Android change through AI Studio.
+- [x] 3.2 Select the existing `Health context` Drive folder and export one real, partial or complete daily report.
+- [x] 3.3 Verify the exact file in Drive and that it contains no synthetic marker.
+- [x] 3.4 Verify a subsequent ChatGPT Health conversation can identify it, its coverage, and its gaps without inventing absent data.
 - [ ] 3.5 Measure whether the connected source meets the agreed next-day freshness deadline.

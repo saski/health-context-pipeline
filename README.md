@@ -21,17 +21,13 @@ credentials, API keys, or device exports belong in this repository.
 
 ## Current status
 
-The repository is validating the daily Drive-based conversation path. It has a
-local renderer for synthetic daily context and a connected Drive folder whose
-new synthetic file was successfully read from the ChatGPT Health project.
-
 A browser-built Android companion has passed a physical-device foreground-read
-smoke test. It now implements a manual foreground export: after the user
-selects the `Health context` Drive folder with Android's system picker, it can
-write or replace that date's Markdown summary in that folder. It has no
-Internet permission, OAuth credentials, broad Drive access, or background
-export. This new path awaits physical-device validation; the current Drive
-file remains a synthetic freshness probe, not a health summary.
+smoke test and an end-to-end real-data export check. After the user selects
+the `Health context` Drive folder with Android's system picker, the app can
+write or replace that date's Markdown summary; ChatGPT Health can then read
+the file and retain provenance and gaps. It has no Internet permission, OAuth
+credentials, broad Drive access, or background export. Next-day daily
+freshness remains to be observed across a normal morning routine.
 
 ## Repository map
 

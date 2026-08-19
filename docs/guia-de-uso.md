@@ -10,17 +10,13 @@ No es una herramienta de diagnóstico ni sustituye a un profesional sanitario.
 
 ## Estado actual
 
-La carpeta conectada de Google Drive se llama **Health context**. ChatGPT ya ha
-demostrado que puede leer un archivo nuevo de esa carpeta.
+La carpeta conectada de Google Drive se llama **Health context**. La app Android
+puede escribir allí un resumen diario explícito y ChatGPT Health ha demostrado
+que puede leer uno real, conservando su procedencia y sus huecos.
 
-Por ahora solo contiene archivos de prueba sintéticos. En concreto,
-`daily-freshness-probe.md` sirve para medir la sincronización y **no contiene
-datos de salud**.
-
-Todavía no existe un resumen generado con tus datos. Sí existe un prototipo
-local que puede leer Health Connect manualmente en el teléfono y mostrar qué
-bloques están disponibles; no exporta nada. Por tanto, no interpretes ningún
-archivo actual de Drive como un informe personal.
+La exportación sigue siendo manual y en primer plano: la app no envía datos por
+Internet ni se ejecuta sola. Un archivo nuevo en Drive confirma la escritura
+local; que ChatGPT lo lea confirma el circuito completo.
 
 ## Formato para conversar
 
@@ -49,6 +45,19 @@ lo necesario, no una copia completa de todos los registros. Incluirá:
 - sueño, actividad, indicadores, cuerpo y nutrición cuando estén disponibles;
 - la fuente de cada bloque; y
 - datos ausentes, retrasados o conflictivos.
+
+## Rutina diaria recomendada
+
+Para conversaciones sobre un día completo, hazlo por la mañana siguiente:
+
+1. Abre **Salud Disponibilidad** y pulsa **Actualizar**.
+2. Selecciona **Ayer**.
+3. Pulsa **Exportar ayer**. La carpeta ya elegida no debe pedirse de nuevo.
+4. En el proyecto ChatGPT **health**, pide el resumen del archivo de ayer y sus
+   huecos. Solo trata como conclusión los dominios disponibles o parciales.
+
+Puedes exportar **Hoy** para una consulta puntual, pero el propio archivo se
+declarará un snapshot parcial: no representa el día completo.
 
 ## Dónde consumir la información
 
@@ -97,9 +106,8 @@ supongas cero cuando falte un nutriente.
 ## Privacidad
 
 No subas exportaciones, capturas, credenciales ni valores médicos a este
-repositorio. El paso que conectará Health Connect con el resumen diario todavía
-no está implementado y requerirá una revisión explícita antes de manejar datos
-reales.
+repositorio. La app escribe el resumen únicamente en la carpeta que eliges con
+el selector Android; el repositorio no guarda los datos reales.
 
 ## Fuentes confirmadas hasta ahora
 
@@ -129,7 +137,7 @@ que ese bloque no puede respaldar una conclusión ese día.
 
 ## Qué viene ahora
 
-El siguiente hito es un prototipo Android de lectura local y manual: comprobará
-qué bloques están disponibles y de qué aplicación proceden, sin exportarlos ni
-enviarlos a la nube. La instrucción exacta para Google AI Studio está en
-[prototipo AI Studio](ai-studio-health-connect-prototype-prompt.md).
+El siguiente hito es comprobar que la rutina de la mañana siguiente cumple el
+plazo diario acordado. Después se decidirá, con evidencia real, si merece la
+pena automatizar alguna parte; no se añadirá sincronización en segundo plano
+por defecto.
