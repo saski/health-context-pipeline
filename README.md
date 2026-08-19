@@ -25,9 +25,9 @@ A browser-built Android companion has passed a physical-device foreground-read
 smoke test and an end-to-end real-data export check. After the user selects
 the `Health context` Drive folder with Android's system picker, the app can
 write or replace that date's Markdown summary; ChatGPT Health can then read
-the file and retain provenance and gaps. It has no Internet permission, OAuth
-credentials, broad Drive access, or background export. Next-day daily
-freshness remains to be observed across a normal morning routine.
+the file and retain provenance and gaps. Opt-in previous-day background export
+is now implemented and awaits physical-device validation. The app still has no
+Internet permission, OAuth credentials, or broad Drive access.
 
 ## Repository map
 
@@ -40,7 +40,8 @@ directly by AI Studio. Neither repository is a copy of the other.
 Android reports daily availability locally and can export a selected day's
 summary only after an explicit folder choice. The pipeline defines how that
 privacy-bounded artifact becomes usable in ChatGPT Health. The app does not
-upload data, retain raw health records, or automate the export.
+upload data or retain raw health records; its optional daily worker reads only
+the same five authorized domains and writes yesterday's normalized summary.
 
 For the everyday workflow, current limitations, and how to read a daily
 summary, see the Spanish [user guide](docs/guia-de-uso.md). The next

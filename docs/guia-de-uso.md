@@ -14,9 +14,11 @@ La carpeta conectada de Google Drive se llama **Health context**. La app Android
 puede escribir allí un resumen diario explícito y ChatGPT Health ha demostrado
 que puede leer uno real, conservando su procedencia y sus huecos.
 
-La exportación sigue siendo manual y en primer plano: la app no envía datos por
-Internet ni se ejecuta sola. Un archivo nuevo en Drive confirma la escritura
-local; que ChatGPT lo lea confirma el circuito completo.
+La exportación manual en primer plano ya está validada. La siguiente versión
+añade sincronización diaria opcional: tras conceder una vez la lectura de
+Health Connect en segundo plano, Android exportará el día anterior durante una
+ventana flexible por la mañana. La app no envía datos mediante una conexión
+propia; escribe a través del proveedor de documentos en la carpeta elegida.
 
 ## Formato para conversar
 
@@ -48,14 +50,16 @@ lo necesario, no una copia completa de todos los registros. Incluirá:
 
 ## Rutina diaria recomendada
 
-Para conversaciones sobre un día completo, hazlo por la mañana siguiente:
+Después de instalar y activar la sincronización automática una vez:
 
-1. Abre **Salud Disponibilidad** y pulsa **Actualizar**.
-2. Selecciona **Ayer**.
-3. Pulsa **Exportar ayer**. La carpeta ya elegida no debe pedirse de nuevo.
-4. En el proyecto ChatGPT **health**, pide el resumen del archivo de ayer y sus
+1. Android intentará exportar **ayer** cada mañana, aproximadamente a las
+   09:00; la hora exacta puede retrasarse por batería o planificación del sistema.
+2. Comprueba la app solo si el archivo de ayer no aparece dentro del plazo
+   diario esperado.
+3. En el proyecto ChatGPT **health**, pide el resumen del archivo de ayer y sus
    huecos. Solo trata como conclusión los dominios disponibles o parciales.
 
+Los botones de actualización y exportación manual quedan como recuperación.
 Puedes exportar **Hoy** para una consulta puntual, pero el propio archivo se
 declarará un snapshot parcial: no representa el día completo.
 
@@ -137,7 +141,7 @@ que ese bloque no puede respaldar una conclusión ese día.
 
 ## Qué viene ahora
 
-El siguiente hito es comprobar que la rutina de la mañana siguiente cumple el
-plazo diario acordado. Después se decidirá, con evidencia real, si merece la
-pena automatizar alguna parte; no se añadirá sincronización en segundo plano
-por defecto.
+El siguiente hito es validar en el teléfono que el archivo de ayer aparece sin
+abrir la app. La iteración posterior hará accionables las tarjetas disponibles
+y simplificará la interfaz; cuando un dominio tenga varias fuentes, pedirá cuál
+abrir en vez de escoger una silenciosamente.
