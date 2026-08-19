@@ -40,8 +40,10 @@ directly by AI Studio. Neither repository is a copy of the other.
 Android reports daily availability locally and can export a selected day's
 summary only after an explicit folder choice. The pipeline defines how that
 privacy-bounded artifact becomes usable in ChatGPT Health. The app does not
-upload data or retain raw health records; its optional daily worker reads only
-the same five authorized domains and writes yesterday's normalized summary.
+upload data or retain raw health records; its optional daily worker reads the
+authorized activity, workout, sleep, body, nutrition and indicator domains and
+writes yesterday's normalized summary. Exercise sessions are included, while
+GPS routes remain excluded.
 
 For the everyday workflow, current limitations, and how to read a daily
 summary, see the Spanish [user guide](docs/guia-de-uso.md). The next

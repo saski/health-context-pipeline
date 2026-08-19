@@ -7,6 +7,6 @@ than guessing.
 
 ## UI direction
 
-The primary surface should contain automation health and the five domain cards.
+The primary surface should contain automation health and the six domain cards.
 Development explanations and manual recovery actions remain accessible but are
 progressively disclosed instead of occupying the main flow.

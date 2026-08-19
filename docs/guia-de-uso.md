@@ -44,7 +44,8 @@ lo necesario, no una copia completa de todos los registros. Incluirá:
 - cuándo se creó el resumen;
 - hasta qué momento llegan los datos;
 - si está completo o parcial;
-- sueño, actividad, indicadores, cuerpo y nutrición cuando estén disponibles;
+- actividad diaria, entrenamientos, sueño, cuerpo, nutrición e indicadores
+  cuando estén disponibles;
 - la fuente de cada bloque; y
 - datos ausentes, retrasados o conflictivos.
 
@@ -124,7 +125,23 @@ fuentes visibles:
 
 La actividad se resumirá mediante los agregados diarios de Health Connect para
 evitar elegir erróneamente entre fuentes que se solapan. Las rutas de ejercicio
-están fuera de alcance: el proyecto no las solicitará ni las incluirá.
+están fuera de alcance: el proyecto no las solicitará ni las incluirá. Las
+sesiones de entrenamiento sí forman parte del contexto y se leen sin rutas:
+tipo, intervalo, duración, fuente y métricas asociadas disponibles.
+
+La versión de cobertura amplia agrupa los datos así:
+
+- actividad: pasos, calorías, distancia, desnivel, pisos y cadencia;
+- entrenamientos: todas las sesiones del día, incluidas elíptica, carrera,
+  fuerza, ciclismo y otras actividades que escriba la fuente;
+- sueño: todas las sesiones y su duración;
+- cuerpo: peso y composición corporal disponible;
+- nutrición: cada alimento distinto, nutrientes presentes e hidratación;
+- indicadores: pulso, pulso en reposo, HRV, SpO2, respiración, VO2 max y
+  mediciones clínicas disponibles.
+
+Después de instalar esta ampliación hay que abrir la app una vez y conceder los
+nuevos permisos de lectura. No se solicita ubicación, GPS ni rutas de ejercicio.
 
 ## Cobertura actual
 

@@ -28,6 +28,6 @@ day. Repeated work is idempotent because the writer replaces only
 
 ## Privacy boundary
 
-The worker reads only the five already declared Health Connect domains and
+The worker reads only the declared Health Connect summary domains and
 writes only the normalized daily summary. It does not add routes, raw record
 archives, Google OAuth, broad Drive discovery, or an app Internet permission.

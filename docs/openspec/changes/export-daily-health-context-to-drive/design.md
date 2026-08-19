@@ -18,14 +18,14 @@ explicit export for the same date. It contains:
 - schema marker and local reporting date;
 - generated-at timestamp and selected time zone;
 - overall status (`available` or `partial`);
-- one section for each of the five selected domains;
+- one section for each configured top-level domain;
 - the observed summary, source, coverage, and factual reason for each domain;
 - explicit `unavailable` or `permission_needed` states rather than zeroes; and
-- a statement that the artifact is a foreground snapshot, not a live feed.
+- a statement that the artifact is a daily snapshot, not a live feed.
 
-The initial artifact preserves only the normalized values already shown in the
-app. It does not export raw record IDs, all nutrition items, exercise routes,
-or a medical interpretation.
+Schema v2 may include metric-level observations that are intentionally more
+detailed than the compact app cards. It does not export exercise routes,
+coordinates, or a medical interpretation.
 
 ## Flow
 

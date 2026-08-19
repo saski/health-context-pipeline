@@ -1,5 +1,11 @@
 # AI Studio prompt: Health Connect availability check
 
+> Historical prototype prompt. It documents the original five-signal manual
+> probe and must not be used to regenerate the current application. The current
+> coverage and automation contract lives in
+> `docs/openspec/changes/expand-automatic-health-context-coverage/` and
+> `docs/openspec/changes/automate-daily-health-context-export/`.
+
 ## Purpose
 
 This is the first device-native prototype for the Health tracking project. Its

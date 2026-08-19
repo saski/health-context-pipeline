@@ -27,5 +27,5 @@ health context.
 ## Impact
 
 The Android privacy boundary expands from foreground-only Health Connect reads
-to user-approved background reads of the same five data types. The app still
+to user-approved background reads of the configured health data types. The app still
 writes only to the selected document tree and remains pausable from its UI.
