@@ -15,7 +15,7 @@
 
 ## 3. Verification
 
-- [ ] 3.1 Validate OpenSpec and run Android compilation plus unit tests in CI. OpenSpec is validated; Android CI remains.
+- [x] 3.1 Validate OpenSpec and run Android compilation plus unit tests in CI.
 - [ ] 3.2 Install the update and grant notification access once on the phone.
 - [ ] 3.3 Generate a review immediately and verify notification, detail, feedback, and Drive artifact.
 - [ ] 3.4 Leave the app closed and verify one nightly review is produced by WorkManager.
