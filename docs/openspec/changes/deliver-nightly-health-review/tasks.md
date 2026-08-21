@@ -12,6 +12,7 @@
 - [x] 2.5 Add the nightly task, WorkManager worker, scheduler, and notification channel.
 - [x] 2.6 Add Android 13 notification-permission handling and opt-in controls.
 - [x] 2.7 Add a compact review detail screen and manual recovery action.
+- [x] 2.8 Keep workout type, duration, interval, and provenance in the initial artifact prefix.
 
 ## 3. Verification
 

@@ -36,10 +36,12 @@ the worker so the complete path can be verified without waiting until night.
 ## Export contract
 
 Keep one canonical file per day: `health-context-YYYY-MM-DD.md`. Add a factual
-`Nightly review` section near the top. Both nightly and morning exports render
-the review from the report they read. Morning previous-day export remains
-idempotent and replaces the provisional nightly version with any late-arriving
-data.
+`Critical daily summary` near the top and prioritize observed workouts there,
+including type, duration, interval and source. This makes the artifact useful
+when a connected source returns only its initial portion. Both nightly and
+morning exports render the review from the report they read. Morning
+previous-day export remains idempotent and replaces the provisional nightly
+version with any late-arriving data.
 
 ## Failure handling
 

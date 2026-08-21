@@ -60,6 +60,21 @@ artifact.
 - **THEN** it replaces the same date-named file with a recalculated review
 - **AND** preserves explicit provenance and gaps.
 
+### Requirement: Retrieval-resilient critical summary
+
+The daily artifact SHALL place a compact critical summary before detailed
+per-domain sections. When workouts are observed, that summary SHALL prioritize
+their type, duration, interval and source so a bounded prefix retrieval retains
+the training context without requiring the remainder of the document.
+
+#### Scenario: Drive exposes only the beginning of a workout snapshot
+
+- **GIVEN** Health Connect contains a strength-training session for the day
+- **AND** a consumer retrieves only the initial portion of the Markdown artifact
+- **WHEN** the daily context is rendered
+- **THEN** the retrieved prefix contains the workout type, duration, interval and provenance
+- **AND** missing session metrics are not inferred from unrelated daily observations.
+
 ### Requirement: Manual recovery without daily dependence
 
 The app SHALL provide a manual `Review now` action that executes the same path
