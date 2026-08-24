@@ -1,8 +1,7 @@
 # Tasks
 
-- [ ] Add a behavior test for the granted and missing permission actions.
-- [ ] Expose whether every required Health Connect permission is granted.
-- [ ] Route the granted action to Health Connect settings.
-- [ ] Remove the duplicate post-permission refresh trigger.
-- [ ] Verify Android tests/build and strict OpenSpec validation.
-
+- [x] Add a behavior test for the granted and missing permission actions.
+- [x] Expose whether every required Health Connect permission is granted.
+- [x] Route the granted action to Health Connect settings.
+- [x] Remove the duplicate post-permission refresh trigger.
+- [x] Verify Android tests/build and strict OpenSpec validation.
