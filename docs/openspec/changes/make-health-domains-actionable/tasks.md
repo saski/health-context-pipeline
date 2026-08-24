@@ -10,11 +10,18 @@
 
 ## 2. Behavior
 
-- [ ] 2.1 Add source-resolution tests, including multiple-origin steps.
-- [ ] 2.2 Make available cards actionable with accessible affordances.
-- [ ] 2.3 Add exact-category navigation where verified and app-home fallback elsewhere.
-- [ ] 2.4 Remove redundant development copy and progressively disclose setup, diagnostics, and manual recovery UI.
-- [ ] 2.5 Improve hierarchy, density, contrast, and scanability without hiding gaps or provenance.
+- [ ] 2.1 Preserve structured source package identifiers in domain reports.
+- [ ] 2.2 Add source-resolution tests for one installed origin, an unavailable
+  origin, and multiple-origin activity.
+- [ ] 2.3 Make observed cards actionable with an accessible affordance and the
+  installed app launcher as the default fallback.
+- [ ] 2.4 Add exact-category navigation only where physically verified; present
+  a chooser rather than selecting one of several origins silently.
+- [ ] 2.5 Fold metric detail while retaining concrete gaps and provenance.
+- [ ] 2.6 Move setup, diagnostics, refresh, and manual recovery controls behind
+  progressive disclosure.
+- [ ] 2.7 Promote the latest conclusion, primary action, and automation health.
+- [ ] 2.8 Update behavior tests and the screenshot baseline.
 
 ## 3. Validation
 
