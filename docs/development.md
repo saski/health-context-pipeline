@@ -1,7 +1,7 @@
 # Development and validation toolchain
 
-This plan minimizes setup until evidence shows that a maintained Android
-project is necessary. The current host inventory is recorded in
+This guide records the staged setup and the current local Android workflow. The
+current host inventory is recorded in
 `toolchain-inventory.md`.
 
 ## Phase 0: OpenSpec and path validation
@@ -47,7 +47,7 @@ per-domain freshness, provenance, coverage, and gaps. The output makes those
 limits visible to a ChatGPT Health conversation. Do not put real records in
 repository fixtures or source control.
 
-## Phase 1: AI Studio prototype and WebUSB smoke test
+## Phase 1: AI Studio prototype and WebUSB smoke test (completed)
 
 Already available:
 
@@ -67,15 +67,14 @@ launch, UI states, and the narrow physical-device smoke path.
 
 The Android source is maintained in the separate
 [`health-context-android`](https://github.com/saski/health-context-android)
-repository, synchronized directly by AI Studio. That removes ZIP handoffs while
-preserving this repository as the decision and validation record. The app's
-browser build remains distinct from a locally maintained Android build: the
-host toolchain remains intentionally uninstalled.
+repository. The browser prototype removed the original ZIP handoff and proved
+the physical-device path. AI Studio is now optional and synchronizes through
+GitHub rather than acting as the primary build environment.
 
-## Phase 2: Durable local Android development
+## Phase 2: Durable local Android development (active)
 
-Install this phase only after the simpler-alternative gate selects a maintained
-Android project:
+The maintained Android project justified the local toolchain. The completed
+setup is:
 
 1. Download the latest stable Apple Silicon build of Android Studio from the
    official Android Developers site.
@@ -90,18 +89,19 @@ Do not install separate Homebrew or system distributions of Java, Gradle,
 Kotlin, or ADB unless a later verified constraint makes the bundled toolchain
 insufficient.
 
-Expected verification commands after setup:
+Verified commands:
 
 ```bash
 "/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java" -version
 ~/Library/Android/sdk/platform-tools/adb version
 ~/Library/Android/sdk/platform-tools/adb devices
-./gradlew assembleDebug
-./gradlew test
+JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew :app:assembleDebug
+JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew :app:compileDebugKotlin :app:testDebugUnitTest
 ```
 
-The user must unlock and approve the phone's RSA prompt before `adb devices`
-can report the device as authorized. macOS requires no OEM USB driver.
+The phone is authorized and visible through ADB. macOS requires no OEM USB
+driver. The Android repository's `DEVELOPMENT.md` is the operational source for
+build and installation commands.
 
 ## Phase 3: Health Connect validation support
 

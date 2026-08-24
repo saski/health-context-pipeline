@@ -21,15 +21,16 @@ credentials, API keys, or device exports belong in this repository.
 
 ## Current status
 
-A browser-built Android companion has passed a physical-device foreground-read
-smoke test and an end-to-end real-data export check. After the user selects
+The Android companion has passed a physical-device foreground-read smoke test,
+an end-to-end real-data export check, and a clean local Android Studio build.
+After the user selects
 the `Health context` Drive folder with Android's system picker, the app can
 write or replace that date's Markdown summary; ChatGPT Health can then read
 the file and retain provenance and gaps. Opt-in previous-day background export
-is now implemented and awaits physical-device validation. The app still has no
+is implemented and validated on the physical device. The app still has no
 Internet permission, OAuth credentials, or broad Drive access. Comprehensive
-Health Connect coverage now compiles and passes its unit tests in GitHub CI;
-the expanded permissions and real Fit workout remain to be checked on-device.
+Health Connect coverage compiles and passes its unit tests both locally and in
+GitHub CI; Fit workouts and Zepp/Amazfit records have been observed on-device.
 
 ## Repository map
 
@@ -37,7 +38,9 @@ This repository, **Health Context Pipeline**, owns the cross-platform tracking
 outcome, validation evidence, daily-context contract, and conversational path.
 The Android companion, [**Health Context Android**](https://github.com/saski/health-context-android),
 owns the on-device Health Connect availability reader and is synchronized
-directly by AI Studio. Neither repository is a copy of the other.
+through GitHub. Android Studio is its primary build and device-install
+environment; AI Studio is optional for experiments. Neither repository is a
+copy of the other.
 
 Android reports daily availability locally and can export a selected day's
 summary only after an explicit folder choice. The pipeline defines how that

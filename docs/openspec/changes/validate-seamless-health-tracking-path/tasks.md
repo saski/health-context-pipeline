@@ -48,10 +48,10 @@
 
 ## 6. Gate local development
 
-- [ ] 6.1 Decide whether ingestion gaps or validated device-native jobs justify installing Android Studio and accepting permanent Android maintenance.
-- [ ] 6.2 If justified, install Android Studio for Apple Silicon and only the SDK components required by the selected project.
-- [ ] 6.3 Verify the bundled JDK, Gradle wrapper, SDK Platform Tools, ADB device authorization, and a clean local build.
-- [ ] 6.4 Decide whether Health Connect Toolbox or an Android emulator adds necessary coverage before installing either.
+- [x] 6.1 Decide whether ingestion gaps or validated device-native jobs justify installing Android Studio and accepting permanent Android maintenance. The automatic export and nightly review make local maintenance worthwhile.
+- [x] 6.2 Install Android Studio for Apple Silicon and only the SDK components required by the selected project.
+- [x] 6.3 Verify the bundled JDK, Gradle wrapper 9.3.1, SDK Platform Tools, ADB device authorization, unit tests, and a clean local APK build.
+- [x] 6.4 Decide whether Health Connect Toolbox or an Android emulator adds necessary coverage before installing either. Neither is currently justified because the physical device and pure tests cover the active path.
 
 ## 7. Close the change
 

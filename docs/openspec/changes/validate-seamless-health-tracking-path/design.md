@@ -215,7 +215,7 @@ real-data ingestion.
 - Discovery and OpenSpec work require no Android installation.
 - AI Studio browser prototyping requires Chrome; WebUSB device installation
   does not require local ADB.
-- A durable local Android build will use Android Studio's bundled JDK and the
+- The durable local Android build uses Android Studio's bundled JDK and the
   SDK Platform Tools installed by its setup wizard. Separate system Java,
   Gradle, Kotlin, and Homebrew ADB installs are avoided.
 - The local Android emulator remains optional because Health Connect source
@@ -264,8 +264,9 @@ reviews every accepted result.
 3. Record whether existing sources and automation meet the requirements.
 4. If not, run the smallest AI Studio prototype with synthetic data.
 5. Validate the candidate on the physical device through WebUSB.
-6. Only if durable local development is justified, install Android Studio and
-   import one audited baseline into this repository.
+6. Durable local development is justified and active: use Android Studio,
+   Gradle Wrapper 9.3.1, SDK-managed ADB, and the physical phone against the
+   audited `health-context-android` repository.
 7. Roll back by discarding the candidate implementation while retaining the
    outcome specs and validation evidence.
 
