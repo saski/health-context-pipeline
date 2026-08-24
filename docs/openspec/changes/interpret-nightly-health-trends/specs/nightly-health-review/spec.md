@@ -69,3 +69,15 @@ The system SHALL provide no more than two reversible suggestions tied to observe
 - **WHEN** suggestions are generated
 - **THEN** the app does not prescribe a specific intensity
 - **AND** advises using subjective sensations because the evidence is incomplete.
+
+### Requirement: Stable profile values do not create daily gaps
+
+The system SHALL treat height as optional profile context rather than an expected daily body measurement. An available height MAY remain visible, but an unavailable height SHALL NOT affect body-domain status, metric counts, review confidence or exported gaps.
+
+#### Scenario: Body measurements exist without height
+
+- **GIVEN** Health Connect supplies one or more daily body measurements
+- **AND** no height record is available
+- **WHEN** body availability is calculated
+- **THEN** height is omitted from the daily metrics and gaps
+- **AND** body coverage is calculated only from the remaining daily measurements.

@@ -11,10 +11,11 @@
 - [x] 2.4 Require an exercise-session record before reporting a workout.
 - [x] 2.5 Reuse the generated review in the app, notification and Drive artifact.
 - [x] 2.6 Recalculate historical interpretation during manual and morning exports.
+- [x] 2.7 Exclude unavailable height from daily body coverage while retaining an available value.
 
 ## 3. Verification
 
-- [x] 3.1 Validate OpenSpec strictly and run Android compilation plus unit tests in CI.
+- [ ] 3.1 Validate OpenSpec strictly and run Android compilation plus unit tests in CI.
 - [ ] 3.2 Install the update and verify the morning screenshot no longer judges partial activity or shows isolated speed as a workout.
 - [ ] 3.3 Generate a nighttime review after at least three comparable days and assess whether its conclusion and suggestion are useful.
 - [ ] 3.4 Verify the next morning replaces the same Drive artifact with late-arriving data and preserved interpretation.

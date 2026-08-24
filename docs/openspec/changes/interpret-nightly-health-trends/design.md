@@ -22,6 +22,10 @@ A report generated for the current local day is provisional because source appli
 
 Only available metrics whose key starts with `exercise_session_` establish a workout. Speed, cadence, power and other exercise-adjacent metrics may support a known session but cannot create one. This prevents an isolated speed record from becoming a fictitious workout in the review.
 
+## Stable profile context
+
+Height is useful profile context but not an expected daily measurement. The body domain may retain and show it when Health Connect supplies a value, but an unavailable height is removed from daily coverage, gaps and metric counts. Other body measurements retain their existing availability semantics.
+
 ## Safety boundary
 
 Suggestions are reversible behaviour prompts such as protecting the next sleep opportunity or reducing the next session only when personal recovery signals and user sensations agree. The generator does not diagnose, prescribe medication, infer missing values or assert a multi-day change from fewer than three observations.

@@ -8,6 +8,7 @@ The nightly review currently reproduces available measurements and missing field
 - Compare the selected day with the previous seven local calendar days and require at least three comparable observations before describing a change.
 - Treat a same-day review as provisional and avoid judging activity or nutrition before the evening.
 - Count a workout only when Health Connect provides an exercise-session record; isolated speed, cadence or power does not establish that a workout occurred.
+- Treat height as optional profile context rather than a daily body-measurement gap.
 - Generate one identical interpreted review for the app, notification and canonical Drive artifact.
 - Keep detailed raw measurements and provenance in the later artifact sections for auditability.
 
