@@ -10,18 +10,19 @@
 
 ## 2. Behavior
 
-- [ ] 2.1 Preserve structured source package identifiers in domain reports.
-- [ ] 2.2 Add source-resolution tests for one installed origin, an unavailable
+- [x] 2.1 Preserve structured source package identifiers in domain reports.
+- [x] 2.2 Add source-resolution tests for one installed origin, an unavailable
   origin, and multiple-origin activity.
-- [ ] 2.3 Make observed cards actionable with an accessible affordance and the
+- [x] 2.3 Make observed cards actionable with an accessible affordance and the
   installed app launcher as the default fallback.
-- [ ] 2.4 Add exact-category navigation only where physically verified; present
+- [x] 2.4 Add exact-category navigation only where physically verified; present
   a chooser rather than selecting one of several origins silently.
-- [ ] 2.5 Fold metric detail while retaining concrete gaps and provenance.
-- [ ] 2.6 Move setup, diagnostics, refresh, and manual recovery controls behind
+- [x] 2.5 Fold metric detail while retaining concrete gaps and provenance.
+- [x] 2.6 Move setup, diagnostics, refresh, and manual recovery controls behind
   progressive disclosure.
-- [ ] 2.7 Promote the latest conclusion, primary action, and automation health.
-- [ ] 2.8 Update behavior tests and the screenshot baseline.
+- [x] 2.7 Promote the latest conclusion, primary action, and automation health.
+- [x] 2.8 Update behavior tests.
+- [ ] 2.9 Capture the consolidated screenshot baseline on the physical phone.
 
 ## 3. Validation
 
